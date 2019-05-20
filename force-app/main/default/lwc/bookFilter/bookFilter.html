@@ -1,0 +1,61 @@
+<template>
+        <lightning-card title="Search" icon-name="standard:search">
+            <div class="slds-m-horizontal_medium">
+                <lightning-input
+                    label="Enter Keywords"
+                    type="search"
+                    onchange={handleSearchKeyChange}
+                ></lightning-input>
+                <section>
+                    <h1>Category</h1>
+                    <template if:true={categories.data}>
+                        <template
+                            for:each={categories.data.values}
+                            for:item="category"
+                        >
+                            <lightning-input
+                                key={category.value}
+                                label={category.label}
+                                data-filter="categories"
+                                data-value={category.value}
+                                type="checkbox"
+                                checked
+                                onchange={handleCheckboxChange}
+                            ></lightning-input>
+                        </template>
+                    </template>
+                    <template if:true={categories.error}>
+                        <c-inline-message
+                            message="Error loading categories"
+                            errors={categories.error}
+                        ></c-inline-message>
+                    </template>
+                </section>
+                <section>
+                    <h1>Book Status</h1>
+                    <template if:true={availability.data}>
+                        <template
+                            for:each={availability.data.values}
+                            for:item="availabilitySingular"
+                        >
+                            <lightning-input
+                                key={availabilitySingular.value}
+                                label={availabilitySingular.label}
+                                data-filter="availability"
+                                data-value={availabilitySingular.value}
+                                type="checkbox"
+                                checked
+                                onchange={handleCheckboxChange}
+                            ></lightning-input>
+                        </template>
+                    </template>
+                    <template if:true={availability.error}>
+                        <c-inline-message
+                            message="Error loading availability"
+                            errors={availability.error}
+                        ></c-inline-message>
+                    </template>
+                </section>
+            </div>
+        </lightning-card>
+    </template>

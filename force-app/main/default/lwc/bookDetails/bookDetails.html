@@ -1,0 +1,50 @@
+<template>
+    <lightning-card icon-name="standard:apex_plugin">
+        <template if:true={book.data}>
+            <span slot="title">{book.data.fields.Name.value}</span>
+            <lightning-button-icon
+                icon-name="utility:expand_alt"
+                slot="actions"
+                onclick={handleNavigateToRecord}
+            ></lightning-button-icon>
+            <div class="slds-m-horizontal_medium">
+                <img
+                    src={book.data.fields.Picture_URL__c.value}
+                    class="book"
+                    alt="Book picture"
+                />
+                <div class="row">
+                    <div>Category:</div>
+                    <div>{book.data.fields.Book_Type__c.value}</div>
+                </div>
+                <div class="row">
+                    <div>Author:</div>
+                    <div>{book.data.fields.Author__c.value}</div>
+                </div>
+                <div class="row">
+                    <div>Publish Date:</div>
+                    <div>{book.data.fields.Publish_Date__c.value}</div>
+                </div>
+                <section>History</section>
+                <div class="row">
+                    <div>Last Borrowed By:</div>
+                    <div>{book.data.fields.LastModifiedById.value}</div>
+                </div>
+                <div class="row">
+                    <div>Date Last Borrowed:</div>
+                    <div>{book.data.fields.Date_Last_Borrowed__c.value}</div>
+                </div>              
+            </div>
+        </template>
+
+        <template if:true={noData}>
+            <c-placeholder
+                message="Select a book to see details"
+            ></c-placeholder>
+        </template>
+
+        <template if:true={book.error}>
+            <c-inline-message errors={book.error}></c-inline-message>
+        </template>
+    </lightning-card>
+</template>

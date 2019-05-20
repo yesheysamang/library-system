@@ -1,0 +1,48 @@
+<template>
+        <lightning-card icon-name="standard:apex_plugin">
+            <template if:true={equipment.data}>
+                <span slot="title">{equipment.data.fields.Name.value}</span>
+                <lightning-button-icon
+                    icon-name="utility:expand_alt"
+                    slot="actions"
+                    onclick={handleNavigateToRecord}
+                ></lightning-button-icon>
+                <div class="slds-m-horizontal_medium">
+                    <img
+                        src={equipment.data.fields.Picture_URL__c.value}
+                        class="equipment"
+                        alt="Equipment picture"
+                    />
+                    <div class="row">
+                        <div>Category:</div>
+                        <div>{equipment.data.fields.Equipment_Type__c.value}</div>
+                    </div>
+                    <div class="row">
+                        <div>Brand:</div>
+                        <div>{equipment.data.fields.Equipment_Brand__c.value}</div>
+                    </div>
+                    <section>Status:</section>
+                    <div class="row">
+                        <div>{equipment.data.fields.Equipment_Status__c.value}</div>
+                    </div>
+                    <section>History:</section>
+                    <div class="row">
+                        <div>Last Borrowed By:</div>
+                        <div>{equipment.data.fields.LastModifiedById.value}</div>
+                    </div>
+                    <div class="row">
+                        <div>Date Last Borrowed:</div>
+                        <div>{equipment.data.fields.Date_Last_Borrowed__c.value}</div>
+                    </div>           
+                    </div>
+            </template>
+    
+            <template if:true={noData}>
+                    Click on equipment to view its details
+            </template>
+    
+            <template if:true={equipment.error}>
+                <c-inline-message errors={equipment.error}></c-inline-message>
+            </template>
+        </lightning-card>
+    </template>

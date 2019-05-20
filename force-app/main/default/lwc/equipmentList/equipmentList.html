@@ -1,0 +1,36 @@
+<template>
+        <div class="slds-card slds-p-around_x-small">
+            <template if:true={equipment.data}>
+                <template if:true={equipment.data.records.length}>
+                    <div class="content">
+                        <template
+                            for:each={equipment.data.records}
+                            for:item="equipmentSingular"
+                        >
+                            <c-equipment-tile
+                                key={equipmentSingular.Id}
+                                equipment={equipmentSingular}
+                                draggable={tilesAreDraggable}
+                                onselected={handleProductSelected}
+                                class="slds-m-around_x-small"
+                            >
+                            </c-equipment-tile>
+                        </template>
+                    </div>
+                    <c-paginator
+                        page-number={pageNumber}
+                        page-size={equipment.data.pageSize}
+                        total-item-count={equipment.data.totalItemCount}
+                        onprevious={handlePreviousPage}
+                        onnext={handleNextPage}
+                    ></c-paginator>
+                </template>
+                <template if:false={equipment.data.records.length}>
+                Sorry, we don't seem to have that piece of A/V Equipment
+                </template>
+            </template>
+            <template if:true={equipment.error}>
+                <c-inline-message errors={equipment.error}></c-inline-message>
+            </template>
+        </div>
+    </template>

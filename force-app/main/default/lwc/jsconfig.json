@@ -1,0 +1,53 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/bookDetails": [
+                "bookDetails/bookDetails.js"
+            ],
+            "c/bookFilter": [
+                "bookFilter/bookFilter.js"
+            ],
+            "c/bookList": [
+                "bookList/bookList.js"
+            ],
+            "c/bookTile": [
+                "bookTile/bookTile.js"
+            ],
+            "c/equipmentDetails": [
+                "equipmentDetails/equipmentDetails.js"
+            ],
+            "c/equipmentFilter": [
+                "equipmentFilter/equipmentFilter.js"
+            ],
+            "c/equipmentList": [
+                "equipmentList/equipmentList.js"
+            ],
+            "c/equipmentTile": [
+                "equipmentTile/equipmentTile.js"
+            ],
+            "c/inlineMessage": [
+                "inlineMessage/inlineMessage.js"
+            ],
+            "c/paginator": [
+                "paginator/paginator.js"
+            ],
+            "c/placeholder": [
+                "placeholder/placeholder.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}
