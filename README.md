@@ -6,7 +6,7 @@ Library system to track books and AV equipment that employees can borrow from a 
 
 # What I learned
 
-* Using Salesforce's Lightning App Builder to create apps quicker in comparison to [Force.com].(https://www.salesforce.com/products/platform/products/force/?d=70130000000f27V&internal=true)
+* Using Salesforce's Lightning App Builder to create apps quicker in comparison to [Force.com](https://www.salesforce.com/products/platform/products/force/?d=70130000000f27V&internal=true).
 * Creating custom Objects, or at least custom fields on existing objects.
 * Developing custom Lightning Web Components (HTML + Modern JavaScript), Apex code (backend controller).
 
